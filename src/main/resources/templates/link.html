@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>URL 링크</h1>
+    <ul>
+        <li>name : [[${name}]] </li>
+        <li>age : [[${age}]]</li>
+    </ul>
+    <ul>
+        <li><a th:href="@{/url}">basic url</a></li>
+        <li><a th:href="@{/getInfo(name=${name},age=${age})}">Query Parms</a></li>
+        <span>요청 구두번호 : [[${shoesNumber}]]</span>
+        <li>
+            <a th:href="@{/shoes/details/{id}(id=${shoesNumber})}">
+                Path Variable
+            </a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a th:href="@{/shoes/{id}(id=${shoesNumber},name=${name})}">Query Params + Path Variable</a>
+        </li>
+    </ul>
+</body>
+</html>
