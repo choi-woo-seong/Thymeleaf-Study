@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>여러가지 자료구조 표현하기</h1>
+    <ul>
+        <li>단순변수</li>
+        <span>- data : [[${data}]] </span>
+    </ul>
+    <ul>
+        <li>Object</li>
+        <span>- userData.userName : </span> <span th:text="${userData.userName}"></span>
+        <br>
+        <span>- userData['userAge'] : </span> <span th:text="${userData['userAge']}"></span>
+        <br>
+        <span>- userData.getUserAddress() : </span> <span th:text="${userData.getUserAddress()}"></span>
+    </ul>
+</body>
+</html>
