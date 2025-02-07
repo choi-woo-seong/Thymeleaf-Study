@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>게시판 링크 리스트</h1>
+  <table border="1">
+    <tr>
+      <th>url</th>
+      <th>method</th>
+      <th>출력내용</th>
+      <th>html page</th>
+    </tr>
+    <tr>
+      <td>/articles/list</td>
+      <td>GET</td>
+      <td>
+        <a th:href="@{/articles/listAll}">
+          전체 게시글 읽기 성공
+        </a>
+      </td>
+      <td>list_all.html</td>
+    </tr>
+    <tr>
+      <td>/articles/{id}</td>
+      <td>GET</td>
+      <td th:with="value=7">
+        <a th:href="@{/articles/{id}(id=${value})}">
+          7번 게시글 읽어오기 성공
+        </a>
+        </td>
+      <td>list_one.html</td>
+    </tr>
+    <tr th:with="name='김형민', weight=70, height=140">
+      <td>/articles/create?name=tom&weight=8
+        0&height=180</td>
+      <td>GET</td>
+      <td>
+        <a th:href="@{/articles/create(name=${name},
+        weight=${weight}, height=${height})}">
+        [[${name}]]의 키는 [[${height}]], 몸무게는 [[${weight}]] 입니다.
+        </a>
+      </td>
+      <td>new.html</td>
+    </tr>
+    <tr>
+      <td>/articles/update</td>
+      <td>POST</td>
+      <td><a th:href="@{/articles/update}">
+        업데이트 성공 화면 출력
+      </a>
+      </td>
+      <td>update_ok.html</td>
+    </tr>
+    <tr th:with="id=5">
+      <td>/articles/{id}/update</td>
+      <td>GET</td>
+      <td><a th:href="@{/articles/{id}/update(id=${id})}">
+        [[ ${id} ]] 번 게시글 수정 폼 로딩 완료
+      </a>
+      </td>
+      <td>update.html</td>
+    </tr>
+    <tr th:with="deleteId=3">
+      <td>/articles/{id}/delete</td>
+      <td>GET</td>
+      <td><a th:href="@{/articles/{id}/delete(id=${deleteId})}">
+        [[${deleteId}]]번 글 삭제 완료
+      </a>
+      </td>
+      <td>delete_ok.html</td>
+    </tr>
+    <tr th:with="articleId=11">
+      <td>/articles/{id}/articleComment</td>
+      <td>POST</td>
+      <td><a th:href="@{/articles/{id}/articleComment(id=${articleId})}">
+        [[${articleId}]]번 게시글의 모든 댓글보기 성공
+      </a></td>
+      <td>comment_view.html</td>
+    </tr>
+    <tr th:with="articleId=15, commentId=3">
+      <td>/articles/{id}/articleComments/{articlecomment-id}/delete</td>
+      <td>POST</td>
+      <td><a th:href="@{/articles/{id}/articleComments/{articleCommentId}/delete
+        (id=${articleId}, articleCommentId=${commentId})}">
+        [[${articleId}]]번 게시글의 [[${commentId}]]번째 답글 삭제 완료
+      </a>
+      </td>
+      <td>delete_ok.html</td>
+    </tr>
+  </table>
+</body>
+</html>
