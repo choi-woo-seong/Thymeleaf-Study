@@ -8,9 +8,10 @@
     <h1>보내온 정보</h1>
     <div th:object="${data}">
         <h4 th:text="*{userName}"></h4>
-        <h4 th:text="*{userAge}"></h4>
+        <h4 th:text="${data.userAge}"></h4>
+<!--        <h4 th:text="*{userAge}"></h4>-->
     </div>
     <br>
-    <span><a th:href="@{/link}"> 돌아가기 </a></span>
+    <span><a th:href="@{/link}">돌아가기</a></span>
 </body>
 </html>

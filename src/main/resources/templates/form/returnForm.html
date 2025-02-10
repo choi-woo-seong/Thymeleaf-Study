@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:object="${info}">
+ <h1>Result</h1>
+  <span>NickName : [[*{nickname}]] </span>
+  <br>
+  <span>Email : [[*{email}]]</span>
+  <br>
+  <span>TrueOrFalse : [[*{trueOrFalse}]]</span>
+    <br>
+    <span>Hobbies : </span>
+    <th:block th:each="h : *{hobbies}">
+        <span th:text="${h}"></span>
+    </th:block>
+    <br>
+    <span>Like Language : [[*{language}]]</span>
+</body>
+</html>

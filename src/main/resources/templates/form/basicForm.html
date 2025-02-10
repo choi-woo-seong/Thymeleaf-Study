@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="py-4 text-center">
+      <h2>Test Form</h2>
+    </div>
+    <form th:action="@{/sendData}" method="post" th:object="${user}">
+      <div>
+        <label for="nickname">NickName</label>
+        <input type="text" class="form-control" th:field="*{nickname}">
+        <label for="email">이메일</label>
+        <input type="email" class="form-control" th:field="*{email}">
+      </div>
+        <hr>
+      <!-- 체크박스의 사용 -->
+      <div>CheckBox Test</div>
+        <div>
+            <div class="form-check">
+                <input type="checkbox" th:field="*{trueOrFalse}"
+                class="form-check-input">
+                <label for="trueOrFalse1" class="form-check-label">True or False</label>
+            </div>
+        </div>
+        <hr>
+        <!-- 다중 체크박스 - 동적생성하기 -->
+        <div>
+            <div>취미 선택(다중선택가능)</div>
+            <div th:each="h: ${hobbies}">
+                <input type="checkbox" th:field="*{hobbies}" th:value="${h.key}" class="form-check-input">
+                <label th:for="${#ids.prev('hobbies')}" th:text="${h.value}" class="form-check-label"></label>
+            </div>
+        </div>
+        <hr>
+        <!-- 좋아하는 프로그램 언어 (한개만 선택됨)  -->
+        <div>
+            <div>프로그램 언어 선택(한 개만) </div>
+            <div th:each ="x:${lang}" class="form-check-inline">
+                <input type="radio" th:field="*{language}" th:value="${x.name()}" class="form-check-input">
+                <label th:for="${#ids.prev('language')}" th:text="${x.description}" class="form-check-label"></label>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">전송</button>
+    </form>
+  </div>
+</body>
+</html>

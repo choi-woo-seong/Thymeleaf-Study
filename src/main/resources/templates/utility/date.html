@@ -7,28 +7,32 @@
 <body>
   <h1>LocalDateTime</h1>
   <ul>
-      <li>default : [[${nowDateTime}]]</li>
-      <li>#temporals 유틸리티 사용하기</li>
-      <li>yyyy-MM-dd HH:mm:ss = <span th:text="${#temporals.format(nowDateTime, 'yyyy-MM-dd HH:mm:ss')}"></span></li>
-      <li>yyyy-MM-dd/a hh:mm = <span th:text="${#temporals.format(nowDateTime, 'yyyy-MM-dd(a) hh:mm')}"></span></li>
+    <li> default : [[ ${nowDateTime} ]] </li>
+    <li> #temporals 유틸리티 사용하기</li>
+      <li>yyyy-MM-dd HH:mm:ss =
+          <span th:text="${#temporals.format(nowDateTime,
+                            'yyyy-MM-dd HH:mm:ss')}"></span></li>
+      <li>yyyy-MM-dd/a hh:mm =
+          <span th:text="${#temporals.format(nowDateTime,
+                             'yyyy-MM-dd(a) hh:mm')}"></span></li>
   </ul>
   <h1>LocalDateTime - Utils</h1>
   <ul>
-      <li>${#temporals.day(nowDateTime)} =
+      <li>${#temporals.day(localDateTime)} =
           <span th:text="${#temporals.day(nowDateTime)}"></span></li>
-      <li>${#temporals.month(nowDateTime)} =
+      <li>${#temporals.month(localDateTime)} =
           <span th:text="${#temporals.month(nowDateTime)}"></span></li>
-      <li>${#temporals.monthName(nowDateTime)} =
+      <li>${#temporals.monthName(localDateTime)} =
           <span th:text="${#temporals.monthName(nowDateTime)}"></span></li>
-      <li>${#temporals.monthNameShort(nowDateTime)} =
+      <li>${#temporals.monthNameShort(localDateTime)} =
           <span th:text="${#temporals.monthNameShort(nowDateTime)}"></span></li>
       <li>${#temporals.year(nowDateTime)} =
           <span th:text="${#temporals.year(nowDateTime)}"></span></li>
       <li>${#temporals.dayOfWeek(nowDateTime)} =
           <span th:text="${#temporals.dayOfWeek(nowDateTime)}"></span></li>
-      <li>${#temporals.dayOfWeekName(nowDateTime)} =
+      <li>${#temporals.dayOfWeekName(localDateTime)} =
           <span th:text="${#temporals.dayOfWeekName(nowDateTime)}"></span></li>
-      <li>${#temporals.dayOfWeekNameShort(nowDateTime)} =
+      <li>${#temporals.dayOfWeekNameShort(localDateTime)} =
           <span th:text="${#temporals.dayOfWeekNameShort(nowDateTime)}"></span></li>
       <li>${#temporals.hour(nowDateTime)} =
           <span th:text="${#temporals.hour(nowDateTime)}"></span></li>

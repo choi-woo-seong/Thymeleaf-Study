@@ -3,7 +3,7 @@ package my.app.first_Project.dto;
 import lombok.Data;
 
 @Data
-public class Animals {
+public class Animal {
     private String name;
     private String sound;
 }

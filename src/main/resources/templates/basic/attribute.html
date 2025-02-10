@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .text {
+    font-size : 16px
+  }
+  .large {
+    font-size : 20px
+  }
+  .red {
+    color : red;
+  }
+  .blue {
+    color : blue;
+  }
+  .bold {
+    font-weight : 700;
+  }
+</style>
+<body>
+  <h1>속성 설정</h1>
+  <input type="text" class="text" value="리사"
+         th:name="thName" th:value="안유진">
+  <hr>
+  <span class="text" th:classappend="'red bold'">Attribute Test 첫번째</span><br>
+  <span class="text" th:attrappend="class=' large'">Attribute Test 두번째</span><br>
+  <span class="text"th:attrprepend="class='large '">Attribute Test 세번째</span>
+</body>
+</html>

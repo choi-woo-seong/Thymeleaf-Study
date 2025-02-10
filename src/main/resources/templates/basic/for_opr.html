@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>IVE Member List</h1>
+  <table border="1">
+      <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+      </tr>
+      <tr th:each="user : ${userList}">
+          <td>
+              <a th:href="@{|/basic/ive?name=${user.userName}&age=${user.userAge}&addr=${user.userAddress}|}">
+                  <span th:text="${user.userName}"></span>
+              </a>
+          </td>
+          <td th:text="${user.userAge}">15</td>
+          <td th:text="${user.userAddress}">제주</td>
+      </tr>
+  </table>
+  <h1>IVE Member List(Object 활용)</h1>
+  <table border="1">
+      <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+      </tr>
+      <tr th:each="user : ${userList}" th:object="${user}">
+          <td th:text="*{userName}">홍길동</td>
+          <td th:text="*{userAge}">15</td>
+          <td th:text="*{userAddress}">제주</td>
+      </tr>
+  </table>
+  <h1>IVE Member List(index 활용)</h1>
+  <table border="1">
+      <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>Etc... </th>
+      </tr>
+      <tr th:each="user, i : ${userList}" th:object="${user}">
+          <td th:text="${i.count}">0</td>
+          <td th:text="*{userName}">홍길동</td>
+          <td th:text="*{userAge}">15</td>
+          <td th:text="*{userAddress}">제주</td>
+          <td>
+              index = <span>[[ ${i.index} ]]</span>
+              , size = <span>[[ ${i.size} ]]</span>
+              , first = <span>[[ ${i.first} ]]</span>
+              , last = <span>[[ ${i.last} ]]</span>
+              , current = <span>[[ ${i.current} ]]</span>
+          </td>
+      </tr>
+  </table>
+</body>
+</html>
